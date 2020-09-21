@@ -6,4 +6,4 @@ A terminal Mines game
 - `cd` into the repository's directory
 - `./main.py ROWS COLS MINES` where `ROWS` and `COLS` are the board's <br> 
 dimensions and `MINES` is the precentage of mines on the board <br>
-e.g. `./main.py 8 8 15` will create an 8x8 board with 10 mines (15%)
+e.g. `./main.py 8 8 16` will create an 8x8 board with 10 mines (16%)
