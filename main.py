@@ -287,7 +287,7 @@ def game():
             if name != "":
                 home = expanduser("~")
                 scores_dir = home + sep + scores_dir
-                if not isdir(f""):
+                if not isdir(scores_dir):
                     mkdir(scores_dir)
 
                 with open(f"{scores_dir}{sep}{rows}_{cols}_{mines_percent}", 'a') as score_file:
@@ -298,6 +298,7 @@ def game():
             print(Fore.LIGHTRED_EX + "Invalid input" + Style.RESET_ALL)
             inp = get_input()
         play(inp)
+
 
 game()
 
