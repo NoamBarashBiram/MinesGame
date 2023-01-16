@@ -6,7 +6,7 @@ from os.path import isdir, expanduser, sep
 from sys import argv, stdout
 from time import time_ns
 
-import readchar.readchar
+from readchar import readchar
 from colorama import init, Fore, Back, Cursor, Style
 init()  # initialize colorama - for windows
 
@@ -205,7 +205,7 @@ def get_input():
     esc = False
     bracket = False
     while True:
-        char = readchar.readchar()
+        char = readchar()
         if char == '\x03':
             print(Cursor.POS(0, rows))
             print(Fore.LIGHTMAGENTA_EX + "Going already? :(")
