@@ -8,6 +8,7 @@ from time import time_ns
 
 from readchar import readchar
 from colorama import init, Fore, Back, Cursor, Style
+
 init()  # initialize colorama - for windows
 
 scores_dir = ".mines_scores"
@@ -94,8 +95,8 @@ def add_numbers():
             if board[y][x] == -1:
                 continue
             local_mines = 0
-            for a in range(y-1, y+2):
-                for b in range(x-1, x+2):
+            for a in range(y - 1, y + 2):
+                for b in range(x - 1, x + 2):
                     if rows > a >= 0 and cols > b >= 0:  # make sure we don't go over the board's edges
                         if board[a][b] == -1:
                             local_mines += 1
@@ -282,7 +283,7 @@ def game():
             end_time = time_ns()
             dur = end_time - start_time
             dur /= 1000000000
-            print(f"You Won! and did it within {int(dur // 60)}:{int(dur) % 60}")
+            print(f"You Won! and did it within {int(dur // 60):02}:{int(dur) % 60:02}")
             name = input(f"{Fore.BLUE}Your Name (blank if you don't wanna save): {Fore.WHITE}")
             if name != "":
                 home = expanduser("~")
@@ -291,7 +292,7 @@ def game():
                     mkdir(scores_dir)
 
                 with open(f"{scores_dir}{sep}{rows}_{cols}_{mines_percent}", 'a') as score_file:
-                    score_file.write(f"{int(dur // 60)}:{dur % 60} {name}\n")
+                    score_file.write(f"{int(dur // 60):02}:{dur % 60:02} {name}\n")
             break
         inp = get_input()
         while inp is None:
@@ -301,5 +302,3 @@ def game():
 
 
 game()
-
-
